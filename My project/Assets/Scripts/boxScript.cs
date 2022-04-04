@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//small change
 public class boxScript : MonoBehaviour
-{
+{ 
     public float speed = 2.0f;
     private Rigidbody rb;
 
@@ -12,11 +13,17 @@ public class boxScript : MonoBehaviour
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
     }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        print(collision.gameObject.tag);
+    }
 
     // Update is called once per frame
     void Update()
     {
         //this is the game object that this script is attached to
+        
         if (Input.GetKeyDown("up"))
         {
             rb.velocity = Vector3.forward * speed;
@@ -37,5 +44,5 @@ public class boxScript : MonoBehaviour
         {
             rb.velocity = Vector3.up * speed;
         }
-    } 
+    }
 }
