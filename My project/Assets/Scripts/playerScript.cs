@@ -5,8 +5,8 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
     private Player thePlayer;
-    public float speed = 20f;
     private Rigidbody rb;
+    public float speed = 20f;
     private int count = 0;
 
     // Start is called before the first frame update
@@ -16,13 +16,16 @@ public class playerScript : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody>();
     }
 
-    public void DoSomething()
+    public void display()
     {
-        print("Do something called");
+        print("Player Script Display");
     }
     
     void OnCollisionEnter(Collision collision)
     {
+        SendMessage("display");
+        CORE.display();
+
         if(collision.gameObject.tag.Equals("enemy"))
         {
             count++;
@@ -30,6 +33,7 @@ public class playerScript : MonoBehaviour
             {
                 this.thePlayer.addKill();
                 print("Kill count: " + this.thePlayer.getKillCOunt());
+                count = 0;
             }
         }
     }
