@@ -6,24 +6,29 @@ public class CORE : MonoBehaviour
 {
     public Transform enemyPrefab;
     public Transform spawnPoint;
+
     private static List<GameObject> theRooms = new List<GameObject>();
 
     public static void addRoomGO(GameObject go)
     {
         CORE.theRooms.Add(go);
-        print("AddedRoom");
-    }
-    public static void display()
-    {
-        print("woot");
+        print("Added Room");
     }
 
+    public static void display()
+    {
+        print("Woot");
+    }
+
+    // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 20; i++)
+        for (int i = 0; i < 100; i++)
         {
-            Transform newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            newEnemy.Translate(Random.Range(-16,50), Random.Range(2,10), Random.Range(-13,30));
+      
+            Transform t = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            Rigidbody rb = t.GetComponent<Rigidbody>();
+            rb.velocity = new Vector3(Random.Range(10, 30), Random.Range(0, 20), Random.Range(10, 30));
         }
     }
 
