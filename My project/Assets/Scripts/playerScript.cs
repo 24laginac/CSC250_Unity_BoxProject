@@ -12,36 +12,28 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        thePlayer = new Player("Carson");
+        thePlayer = new Player("Mike");
         rb = this.gameObject.GetComponent<Rigidbody>();
     }
 
-    public void display()
-    {
-        print("Player Script Display");
-    }
-    
     void OnCollisionEnter(Collision collision)
     {
-        SendMessage("display");
-        CORE.display();
-
         if(collision.gameObject.tag.Equals("enemy"))
         {
             count++;
             if(count == 3)
             {
                 this.thePlayer.addKill();
-                print("Kill count: " + this.thePlayer.getKillCOunt());
-                count = 0;
+                print("Kill Count: " + this.thePlayer.getKillCount());
             }
         }
     }
 
+    
     // Update is called once per frame
     void Update()
     {
-        
+        //print(thePlayer.getName());
         if (Input.GetKeyDown("up"))
         {
             rb.velocity = Vector3.forward * speed;
@@ -61,6 +53,10 @@ public class playerScript : MonoBehaviour
         else if (Input.GetKeyDown("space"))
         {
             rb.velocity = Vector3.up * speed;
+        }
+        else if(Input.GetKeyDown("f"))
+        {
+            print("fire");
         }
     }
 }

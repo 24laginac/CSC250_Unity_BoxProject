@@ -6,11 +6,18 @@ public class Player
 {
     private string name;
     private int killCount;
+    private Room currentRoom;
 
     public Player(string name)
     {
         this.name = name;
         this.killCount = 0;
+        this.currentRoom = null;
+    }
+
+    public void setRoom(Room r)
+    {
+        this.currentRoom = r;
     }
 
     public void addKill()
@@ -18,11 +25,11 @@ public class Player
         this.killCount++;
     }
 
-    public int getKillCOunt()
+    public int getKillCount()
     {
         return this.killCount;
     }
-    
+
     public string getName()
     {
         return this.name;

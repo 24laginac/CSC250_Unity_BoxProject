@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-//small change
 public class boxScript : MonoBehaviour
-{ 
+{
     private int count;
     public GameObject thePlayer;
     private Vector3 playerPosition;
     private Rigidbody rb;
     public float speed = 20f;
-    private NavMeshAgent agent;
+    private NavMeshAgent agent; 
 
     // Start is called before the first frame update
     void Start() //like a constructor
@@ -22,18 +21,15 @@ public class boxScript : MonoBehaviour
         //agent.speed = 20f;
         //agent.Warp(thePlayer.transform.position);
     }
-    
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag.Equals("Player"))
         {
-            CORE.display();
             count++;
             if(count == 3)
             {
-                this.gameObject.SendMessage("DoSomething");
                 Destroy(this.gameObject);
-                count = 0;
             }
         }
     }
