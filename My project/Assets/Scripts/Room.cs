@@ -5,6 +5,7 @@ using UnityEngine;
 public class Room
 {
     private Player thePlayer;
+    private Enemy theEnemy;
 
     public Room()
     {
@@ -14,6 +15,13 @@ public class Room
     public void setPlayer(Player p)
     {
         this.thePlayer = p;
+        this.thePlayer.setRoom(this); //let the player know they are in a new room
+    }
+
+    public void setEnemy(Enemy e)
+    {
+        this.theEnemy = e;
+        this.theEnemy.setRoom(this);
     }
 
     public Player getPlayer()
