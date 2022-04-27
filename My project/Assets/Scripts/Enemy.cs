@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class Enemy
 {
-    private string name;
     private Room currentRoom;
 
-    public Enemy(string name)
+    public Enemy()
     {
-       this.name = name; 
+        this.currentRoom = null;
     }
 
     public void setRoom(Room r)
     {
         this.currentRoom = r;
-    }
-
-    public Room getRoom()
-    {
-        return this.currentRoom;
-    }
-
-    public string getName()
-    {
-        return this.name;
     }
 }

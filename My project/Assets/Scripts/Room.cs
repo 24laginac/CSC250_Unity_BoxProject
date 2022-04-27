@@ -10,18 +10,19 @@ public class Room
     public Room()
     {
         this.thePlayer = null;
-    }
-
-    public void setPlayer(Player p)
-    {
-        this.thePlayer = p;
-        this.thePlayer.setRoom(this); //let the player know they are in a new room
+        this.theEnemy = null;
     }
 
     public void setEnemy(Enemy e)
     {
         this.theEnemy = e;
         this.theEnemy.setRoom(this);
+    }
+
+    public void setPlayer(Player p)
+    {
+        this.thePlayer = p;
+        this.thePlayer.setRoom(this); //let the player know they are in a new room
     }
 
     public Player getPlayer()

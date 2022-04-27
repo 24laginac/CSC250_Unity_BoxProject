@@ -8,9 +8,15 @@ public class CORE : MonoBehaviour
     public Transform spawnPoint;
 
     private static List<GameObject> theRoomsGos = new List<GameObject>();
+    private static List<GameObject> theRoomsTriggerGos = new List<GameObject>();
     private static List<Room> theRooms = new List<Room>();
     private static Player currentPlayer = null;
     private static Enemy currentEnemy = null;
+
+    public static void destroyRoom(GameObject g)
+    {
+        Destroy(CORE.theRoomsGos[theRoomsTriggerGos.IndexOf(g)]);
+    }
 
     public static void setPlayer(Player p)
     {
@@ -40,7 +46,11 @@ public class CORE : MonoBehaviour
     public static void addRoomGO(GameObject go)
     {
         CORE.theRoomsGos.Add(go);
-        //print("Added Room");
+    }
+
+    public static void addRoomTriggerGO(GameObject go)
+    {
+        CORE.theRoomsTriggerGos.Add(go);
     }
 
     public static void display()

@@ -6,17 +6,22 @@ using UnityEngine.AI;
 public class boxScript : MonoBehaviour
 {
     private int count;
-    private Enemy theEnemy = new Enemy("Vader");
     public GameObject thePlayer;
     private Vector3 playerPosition;
     private Rigidbody rb;
     public float speed = 20f;
-    private NavMeshAgent agent; 
+    private NavMeshAgent agent;
+    private Enemy theEnemy;
+
+    void Awake()
+    {
+        this.theEnemy = new Enemy();
+    }
 
     // Start is called before the first frame update
     void Start() //like a constructor
     {
-        CORE.setEnemy(theEnemy);
+        CORE.setEnemy(this.theEnemy);
         count = 0;
         rb = this.gameObject.GetComponent<Rigidbody>();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
