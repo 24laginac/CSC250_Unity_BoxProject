@@ -5,17 +5,13 @@ using UnityEngine;
 public class roomTriggerScript : MonoBehaviour
 {
     private Room thisRoom;
-
+    public GameObject roomGo;
 
     // Start is called before the first frame update
+
     void Awake()
     {
-        //print("*************** Room trigger is awake *************");
-    }
-
-    void Start()
-    {
-        //print("*************** Room trigger has started *************");
+        //print("*************** Room trigger has started *************")
         this.thisRoom = new Room();
         CORE.addRoom(this.thisRoom);
         CORE.addRoomTriggerGO(this.gameObject);

@@ -15,7 +15,7 @@ public class CORE : MonoBehaviour
 
     public static void destroyRoom(GameObject g)
     {
-        Destroy(CORE.theRoomsGos[theRoomsTriggerGos.IndexOf(g)]);
+        Destroy(CORE.theRoomsGos[CORE.theRoomsTriggerGos.IndexOf(g)]);
     }
 
     public static void setPlayer(Player p)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class roomScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CORE.addRoomGO(this.gameObject);
     }

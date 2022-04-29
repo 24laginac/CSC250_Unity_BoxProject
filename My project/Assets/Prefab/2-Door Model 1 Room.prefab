@@ -1519,3 +1519,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ba16d3941a634c8f366c972446ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomGo: {fileID: 2620068741191643486}
